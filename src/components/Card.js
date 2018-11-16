@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 
-import theme, { mediaQuery } from "./theme";
+import theme, { mediaQuery } from "../theme";
 
 const Wrapper = styled.div`
   background-color: white;
@@ -21,12 +21,12 @@ const Wrapper = styled.div`
   `};
 `;
 
-export const Card = () => (
+export const Card = ({ contact }) => (
   <Wrapper>
     <img src="http://hoarding.s3-eu-west-1.amazonaws.com/profile.png" />
     <div>
-      <div>JOHN DOE</div>
-      <div>12455867483</div>
+      <div>{contact.name}</div>
+      <div>{contact.phone}</div>
     </div>
   </Wrapper>
 );

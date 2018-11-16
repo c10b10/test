@@ -3,10 +3,10 @@ import styled, { css } from "styled-components";
 import { Redirect, withRouter } from "react-router";
 import { Route, Switch } from "react-router-dom";
 
+import CardList from "./components/CardList";
 import theme, { paddingTopWithHeaderMixin } from "./theme";
 import Search from "./Search";
 import * as Widget from "./Widget";
-import Card from "./Card";
 
 const Wrapper = styled.div`
   ${paddingTopWithHeaderMixin(theme.defaultSpace, theme.spaces.xl)};
@@ -37,12 +37,7 @@ const Alphabet = styled.div`
 `;
 
 const AlphabeticBar = () => {
-  // prettier-ignore
-  const alphabet = [
-    "a", "b", "c", "d", "e", "f", "g",
-    "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
-    "u", "v", "w", "x", "y", "z" 
-    ]
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
   return (
     <Alphabet>
@@ -63,21 +58,14 @@ const CardsWrapper = styled.div`
 
 class App extends Component {
   render() {
-    const cards = [];
-    for (let i = 0; i < 20; i++) {
-      cards.push(<Card />);
-    }
-
     return (
       <React.Fragment>
         <HeaderStyled>My Address Book</HeaderStyled>
         <MainStyled>
           <Widget.Bar />
-          <div>
-            <Search />
-          </div>
+          <Search />
           <AlphabeticBar />
-          <CardsWrapper>{cards}</CardsWrapper>
+          <CardList />
         </MainStyled>
       </React.Fragment>
     );
