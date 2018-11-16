@@ -2,33 +2,32 @@ import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import { Redirect, withRouter } from "react-router";
 import { Route, Switch } from "react-router-dom";
+import Async from "react-async";
 
+import { fetchCards, DataContext } from "./helpers";
+import Header from "./components/Header";
 import RouteMain from "./RouteMain";
-// import RouteContact from "./RouteContact";
-import theme, { paddingTopWithHeaderMixin } from "./theme";
+import RouteContact from "./RouteContact";
 
-const Wrapper = styled.div`
-  ${paddingTopWithHeaderMixin(theme.defaultSpace, theme.spaces.xl)};
-`;
-
-const HeaderStyled = styled.header``;
-
-const CardsWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: ${theme.spaces.m};
-`;
-
+// The app is too simple to justify breaking the rendering components
+// to separate files
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
-        <HeaderStyled>My Address Book</HeaderStyled>
-        <Route path="/" exact component={RouteMain} />
-        {/* <Route path="/contact/:contactId" component={RouteContact} /> */}
-      </React.Fragment>
+      <Async promiseFn={fetchCards}>
+        {({ data, error, isLoading }) => {
+          if (isLoading) return "Loading...";
+          if (error) return error.message;
+          if (data.length)
+            return (
+              <DataContext.Provider value={data}>
+                <Header>My Address Book</Header>
+                <Route path="/" exact component={RouteMain} />
+                <Route path="/contact/:contact" component={RouteContact} />
+              </DataContext.Provider>
+            );
+        }}
+      </Async>
     );
   }
 }

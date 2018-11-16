@@ -1,3 +1,4 @@
+import React from "react";
 import fetch from "isomorphic-fetch";
 
 export const fetchCards = () => {
@@ -18,3 +19,7 @@ export const fetchCards = () => {
       .then(data => data["address-book"])
   );
 };
+
+export const getUserFromEmail = email => email.split("@")[0];
+
+export const DataContext = React.createContext();
