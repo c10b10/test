@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 
-import theme from "./theme";
+import theme from "../theme";
 
-export const Bar = styled.div`
+const Bar = styled.div`
   border-top-left-radius: ${theme.borderRadius.base};
   border-top-right-radius: ${theme.borderRadius.base};
   background-color: ${theme.colors.accent};
@@ -11,7 +11,7 @@ export const Bar = styled.div`
   height: 20px;
 `;
 
-export const widgetBodyMixin = css`
+const Body = styled.div`
   border-radius: ${theme.borderRadius.base};
   background-color: ${theme.colors.main};
   position: relative;
@@ -22,3 +22,23 @@ export const widgetBodyMixin = css`
     top: 0;
   }
 `;
+
+const BodyMain = styled(Body.withComponent("main"))`
+  max-width: ${theme.mainMaxWidth};
+  margin-right: auto;
+  margin-left: auto;
+`;
+
+export const Main = ({ children }) => (
+  <BodyMain>
+    <Bar />
+    {children}
+  </BodyMain>
+);
+
+export const Div = ({ children }) => (
+  <Body>
+    <Bar />
+    {children}
+  </Body>
+);
