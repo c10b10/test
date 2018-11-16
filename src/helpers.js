@@ -16,10 +16,16 @@ export const fetchCards = () => {
       .then(response => {
         return response.json();
       })
-      .then(data => data["address-book"])
+      .then(data =>
+        data["address-book"].map(contact => ({
+          ...contact,
+          username: contact.email.split("@")[0]
+        }))
+      )
   );
 };
 
-export const getUserFromEmail = email => email.split("@")[0];
+export const getContact = (data, username) =>
+  data.find(contact => contact.username === username);
 
 export const DataContext = React.createContext();

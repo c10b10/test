@@ -16,7 +16,7 @@ const Body = styled.div`
   background-color: ${theme.colors.main};
   position: relative;
   padding-top: 10px;
-
+  max-width: ${theme.cardMaxWidth};
   ${Bar} {
     position: absolute;
     top: 0;

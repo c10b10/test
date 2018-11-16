@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 import theme, { mediaQuery } from "../theme";
+import { getUserFromEmail } from "../helpers";
+import ContactInfo from "./ContactInfo";
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
   background-color: white;
   padding: ${theme.spaces.base};
+  border-radius: ${theme.borderRadius.small};
   display: flex;
   align-items: center;
   width: 100%;
@@ -22,12 +26,8 @@ const Wrapper = styled.div`
 `;
 
 export const Card = ({ contact }) => (
-  <Wrapper>
-    <img src="http://hoarding.s3-eu-west-1.amazonaws.com/profile.png" />
-    <div>
-      <div>{contact.name}</div>
-      <div>{contact.phone}</div>
-    </div>
+  <Wrapper to={`/contact/${contact.username}`}>
+    <ContactInfo contact={contact} />
   </Wrapper>
 );
 

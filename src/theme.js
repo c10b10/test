@@ -181,6 +181,7 @@ const theme = {
   cardWidth: "176px",
   cardHeight: "190px",
   focusOutline: "3px auto " + colors.focus,
+  cardMaxWidth: "24rem",
   mainMaxWidth: "64rem" /* 1024px */
 };
 
