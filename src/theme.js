@@ -54,7 +54,7 @@ const palette = {
     eighty: "#333",
     transparent: "rgba(0, 0, 0, 0.2)"
   },
-  red: "#FE8879",
+  red: "#EF4645",
   green: "#41B07A",
   lime: "#BBD148",
   nessie: "#2B8C92",

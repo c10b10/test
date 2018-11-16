@@ -1,9 +1,28 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
+
+import theme from "../theme";
 
 const Letter = styled.a`
+  color: ${theme.colors.accent};
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease-in;
   text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &.is-active {
+    color: ${theme.colors.primary};
+    transition: color 0.15s ease-in;
+    text-decoration: underline;
+  }
+
+  &.is-active {
+    cursor: default;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -16,14 +35,15 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-export default function Filterng({ match }) {
+export default function AlphabetFilter(props) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-  console.log(match);
 
   return (
     <Wrapper>
       {alphabet.map(letter => (
-        <Letter href="#">{letter}</Letter>
+        <Letter key={letter} to={"/"} href="#">
+          {letter}
+        </Letter>
       ))}
     </Wrapper>
   );
