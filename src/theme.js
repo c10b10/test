@@ -164,7 +164,7 @@ const theme = {
   buttonSizes,
 
   // grid
-  gutter: defaultSpace,
+  gutter: spaces.xl,
 
   // borders
   border: "1px solid " + colors.border,

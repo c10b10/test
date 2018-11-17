@@ -3,10 +3,10 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 import theme, { mediaQuery } from "../theme";
-import { getUserFromEmail } from "../helpers";
+import { getUserFromEmail, DataContext } from "../helpers";
 import ContactInfo from "./ContactInfo";
 
-const Wrapper = styled(Link)`
+const Card = styled(Link)`
   background-color: white;
   padding: ${theme.spaces.base};
   border-radius: ${theme.borderRadius.small};
@@ -25,10 +25,34 @@ const Wrapper = styled(Link)`
   `};
 `;
 
-export const Card = ({ contact }) => (
-  <Wrapper to={`/contact/${contact.username}`}>
-    <ContactInfo contact={contact} />
-  </Wrapper>
-);
+const List = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* margin-left: -${theme.gutter}; */
+  width: calc(100% + ${theme.gutter});
 
-export default Card;
+  ${Card} {
+    ${mediaQuery.s`
+      width: calc(50% - ${theme.gutter});
+    `};
+
+    ${mediaQuery.l`
+      width: calc(100% / 3 - ${theme.gutter});
+    `};
+  }
+`;
+
+export default class CardList extends Component {
+  static contextType = DataContext;
+
+  render() {
+    const cards = this.context.map(contact => (
+      <Card to={`/contact/${contact.username}`}>
+        <ContactInfo contact={contact} />
+      </Card>
+    ));
+
+    return <List>{cards}</List>;
+  }
+}

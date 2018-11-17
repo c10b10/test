@@ -6,7 +6,7 @@ import theme from "./theme";
 import Widget from "./components/Widget";
 import AlphabetFilter from "./components/AlphabetFilter";
 import Search from "./components/Search";
-import CardList from "./components/CardList";
+import CardList from "./components/Card";
 import * as Layout from "./components/Layout";
 
 const Main = styled(Widget.withComponent("main"))`
