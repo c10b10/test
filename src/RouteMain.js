@@ -13,7 +13,6 @@ const Main = styled(Widget.withComponent("main"))`
   max-width: ${theme.mainMaxWidth};
   margin-right: auto;
   margin-left: auto;
-  margin-top: ${theme.spaces.base};
 `;
 
 const Section = styled(Layout.VCenter)`

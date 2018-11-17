@@ -2,6 +2,8 @@ import { createGlobalStyle } from "styled-components";
 import styledNormalize from "styled-normalize";
 import theme from "./theme";
 
+import backgroundJPG from "./components/img/background.jpg";
+
 const resets = `
   body,
   h1,
@@ -53,6 +55,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    background-image: url(${backgroundJPG});
   }
 
   * {
@@ -128,10 +131,6 @@ const GlobalStyle = createGlobalStyle`
     border-top: ${theme.border};
     padding: 0;
     margin: ${theme.defaultSpace} auto;
-  }
-
-  .ReactModal__Body--open {
-    overflow: hidden;
   }
 `;
 export default GlobalStyle;
