@@ -38,7 +38,7 @@ const resets = `
   }
 `;
 
-const globalStyles = () => createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
 
   ${resets}
@@ -134,4 +134,4 @@ const globalStyles = () => createGlobalStyle`
     overflow: hidden;
   }
 `;
-export default globalStyles;
+export default GlobalStyle;
