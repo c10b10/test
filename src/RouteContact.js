@@ -1,7 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
 
-import theme from "./theme";
 import { getContact, DataContext } from "./helpers";
 import Widget from "./components/Widget";
 import ContactInfo from "./components/ContactInfo";

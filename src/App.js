@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
-import { Redirect, withRouter } from "react-router";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Async from "react-async";
 import { fetchCards } from "./helpers";
 

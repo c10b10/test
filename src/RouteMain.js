@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import theme from "./theme";
 // This could imported in one go, if exported through index

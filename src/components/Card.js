@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import theme, { mediaQuery } from "../theme";
-import { getUserFromEmail, DataContext } from "../helpers";
+import { DataContext } from "../helpers";
 import ContactInfo from "./ContactInfo";
 
 const Card = styled(Link)`

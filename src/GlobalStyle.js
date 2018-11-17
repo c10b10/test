@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import styledNormalize from "styled-normalize";
 import theme from "./theme";
 
-import backgroundJPG from "./components/img/background.jpg";
+import backgroundJPG from "./assets/img/background.jpg";
 
 const resets = `
   body,

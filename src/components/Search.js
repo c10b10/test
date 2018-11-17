@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 
 import theme from "../theme";
-import loupePNG from "../icons/loupe.png";
+import loupePNG from "../assets/icons/loupe.png";
 
 const Wrapper = styled.div`
   position: relative;
