@@ -31,7 +31,6 @@ const Wrapper = styled.div`
   ${Letter} + ${Letter} {
     margin-left: ${theme.spaces.base};
   }
-  margin: ${theme.spaces.base} 0;
   justify-content: center;
 `;
 

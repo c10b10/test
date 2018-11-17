@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 
-import theme from "./theme";
+import theme from "../theme";
+import loupePNG from "../icons/loupe.png";
 
 const Wrapper = styled.div`
   position: relative;
+  width: 70%;
+`;
+
+const Button = styled.div`
+  top: 50%;
+  transform: translate(0, -50%);
+  background: url(${loupePNG}) no-repeat;
+  width: 18px;
+  height: 21px;
+  left: ${theme.spaces.s};
+  display: flex;
+  position: absolute;
 `;
 
 const Input = styled.input`
@@ -20,8 +33,10 @@ const Input = styled.input`
   border: ${theme.border};
   border-radius: ${theme.borderRadius.small};
   background-color: white;
-  padding: ${theme.inputs.spacing};
+  padding: calc(${theme.spaces.s} + ${theme.spaces.xs});
+  padding-left: calc(${theme.spaces.s} + ${theme.spaces.s} + 18px);
   line-height: ${theme.lineHeights.inputs};
+  width: 100%;
 
   &[disabled] {
     background-color: ${theme.colors.grey.five};
@@ -36,21 +51,10 @@ const Input = styled.input`
   }
 `;
 
-const ButtonWrapper = styled.div`
-  top: 50%;
-  transform: translate(0, -50%);
-  width: 18px;
-  height: 21px;
-  left: 0;
-  display: flex;
-`;
-
 const Search = () => (
   <Wrapper>
-    <ButtonWrapper>
-      <img src="/icons/loupe.png" />
-    </ButtonWrapper>
-    <Input placeholder="Search" />
+    <Button />
+    <Input placeholder="SEARCH" />
   </Wrapper>
 );
 

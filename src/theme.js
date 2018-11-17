@@ -68,6 +68,7 @@ const palette = {
 const colors = {
   main: palette.grey.five,
   accent: palette.red,
+  border: palette.grey.twenty,
   grey: palette.grey,
   text: palette.grey.eighty
 };
