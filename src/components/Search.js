@@ -51,7 +51,7 @@ const Input = styled.input`
   }
 `;
 
-const Search = () => (
+const Search = ({ setSearch, resetSearch }) => (
   <Wrapper>
     <Button />
     <Input placeholder="SEARCH" />

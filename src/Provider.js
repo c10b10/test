@@ -30,7 +30,7 @@ class Store extends React.Component {
   // Sets the Alphabet letter filtering
   setFilter(letter) {
     this.setState({
-      filter: letter.toUpperCase()
+      filter: letter
     });
   }
 
@@ -47,7 +47,9 @@ class Store extends React.Component {
     let data = this.state.data;
     if (this.state.filter) {
       data = data.filter(
-        contact => contact.name.charAt(0).toUpperCase() === this.state.filter
+        contact =>
+          contact.name.charAt(0).toUpperCase() ===
+          this.state.filter.toUpperCase()
       );
     }
     if (this.state.search) {
@@ -61,7 +63,14 @@ class Store extends React.Component {
   render() {
     return (
       <DataContext.Provider
-        value={{ store: this.getData(), actions: this.actions }}
+        value={{
+          store: {
+            cards: this.getData(),
+            filter: this.state.filter,
+            search: this.state.search
+          },
+          actions: this.actions
+        }}
       >
         {this.props.children}
       </DataContext.Provider>

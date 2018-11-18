@@ -16,7 +16,9 @@ export default function RouteContact({ match }) {
     <DataContext.Consumer>
       {({ store }) => (
         <SmallWidget>
-          <ContactInfo contact={getContact(store, match.params.contact)} />
+          <ContactInfo
+            contact={getContact(store.cards, match.params.contact)}
+          />
         </SmallWidget>
       )}
     </DataContext.Consumer>

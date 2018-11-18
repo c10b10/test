@@ -35,13 +35,21 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-export default function AlphabetFilter(props) {
+export default function AlphabetFilter({ setFilter, resetFilter }) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
   return (
     <Wrapper>
       {alphabet.map(letter => (
-        <Letter key={letter} to={"/"} href="#">
+        <Letter
+          key={letter}
+          to={"/"}
+          href="#"
+          onClick={e => {
+            e.preventDefault();
+            setFilter(letter);
+          }}
+        >
           {letter}
         </Letter>
       ))}
