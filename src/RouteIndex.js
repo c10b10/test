@@ -1,7 +1,5 @@
 import React from "react";
-import styled from "styled-components";
 
-import theme from "./theme";
 import Widget from "./components/Widget";
 import AlphabetFilter from "./components/AlphabetFilter";
 import Search from "./components/Search";

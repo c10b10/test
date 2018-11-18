@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import theme, { mediaQuery } from "../theme";
+import theme from "../theme";
 import ContactInfo from "./ContactInfo";
 import * as Grid from "./Grid";
 import { VCenter } from "./Layout";
