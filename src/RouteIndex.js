@@ -18,10 +18,7 @@ export default function RouteIndex() {
         {({ store, actions }) => (
           <>
             <VCenter>
-              <Search
-                setSearch={actions.setSearch}
-                resetSearch={actions.resetSearch}
-              />
+              <Search query={store.search} setSearch={actions.setSearch} />
             </VCenter>
             <VCenter as={Section}>
               <AlphabetFilter setFilter={actions.setFilter} />

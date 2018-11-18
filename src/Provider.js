@@ -14,8 +14,8 @@ class Store extends React.Component {
   actions = {
     setFilter: this.setFilter.bind(this),
     resetFilter: this.setFilter.bind(this, false),
-    setSearch: this.setSearch(this),
-    resetSearch: this.setSearch(this, "")
+    setSearch: this.setSearch.bind(this),
+    resetSearch: this.setSearch.bind(this, "")
   };
 
   static getDerivedStateFromProps(props, state) {

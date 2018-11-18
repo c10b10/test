@@ -51,11 +51,17 @@ const Input = styled.input`
   }
 `;
 
-const Search = ({ setSearch, resetSearch }) => (
-  <Wrapper>
-    <Button />
-    <Input placeholder="SEARCH" />
-  </Wrapper>
-);
+const Search = ({ query, setSearch }) => {
+  return (
+    <Wrapper>
+      <Button />
+      <Input
+        value={query}
+        placeholder="SEARCH"
+        onChange={e => setSearch(e.target.value)}
+      />
+    </Wrapper>
+  );
+};
 
 export default Search;
