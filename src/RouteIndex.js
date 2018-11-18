@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import theme from "./theme";
-// This could imported in one go, if exported through index
 import Widget from "./components/Widget";
 import AlphabetFilter from "./components/AlphabetFilter";
 import Search from "./components/Search";
 import CardList from "./components/Cards";
 import { VCenter, Section } from "./components/Layout";
+import { DataContext } from "./helpers";
 
 export default function RouteIndex() {
   return (
@@ -18,7 +18,9 @@ export default function RouteIndex() {
       <VCenter as={Section}>
         <AlphabetFilter />
       </VCenter>
-      <CardList />
+      <DataContext.Consumer>
+        {({ store }) => <CardList cards={store} />}
+      </DataContext.Consumer>
     </Widget>
   );
 }

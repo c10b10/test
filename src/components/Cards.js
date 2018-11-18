@@ -6,6 +6,7 @@ import theme, { mediaQuery } from "../theme";
 import { DataContext } from "../helpers";
 import ContactInfo from "./ContactInfo";
 import * as Grid from "./Grid";
+import { VCenter } from "./Layout";
 
 const Card = styled(Link)`
   background-color: white;
@@ -30,18 +31,17 @@ const Card = styled(Link)`
   }
 `;
 
-export default class CardList extends Component {
-  static contextType = DataContext;
-
-  render() {
-    const cards = this.context.map((contact, index) => (
-      <Grid.Padding.Column key={index}>
-        <Card to={`/contact/${contact.username}`}>
-          <ContactInfo contact={contact} />
-        </Card>
-      </Grid.Padding.Column>
-    ));
-
-    return <Grid.Margin.Container>{cards}</Grid.Margin.Container>;
-  }
+export default function CardList({ cards = [] }) {
+  if (!cards.length) return <VCenter>Nothing here.</VCenter>;
+  return (
+    <Grid.Padding.Container>
+      {cards.map((contact, index) => (
+        <Grid.Padding.Column key={index}>
+          <Card to={`/contact/${contact.username}`}>
+            <ContactInfo contact={contact} />
+          </Card>
+        </Grid.Padding.Column>
+      ))}
+    </Grid.Padding.Container>
+  );
 }

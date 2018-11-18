@@ -14,9 +14,9 @@ const SmallWidget = styled(Widget)`
 export default function RouteContact({ match }) {
   return (
     <DataContext.Consumer>
-      {data => (
+      {({ store }) => (
         <SmallWidget>
-          <ContactInfo contact={getContact(data, match.params.contact)} />
+          <ContactInfo contact={getContact(store, match.params.contact)} />
         </SmallWidget>
       )}
     </DataContext.Consumer>
