@@ -1,4 +1,4 @@
-Run the app using `npm run`.
+Run the app using `yarn start`.
 
 Some architecture choices were made due to the small size of the app:
 
