@@ -1,32 +1,5 @@
 import { css } from "styled-components";
 
-export const scaleSpacing = (remVal, scale) => {
-  if (/([0-9]+)\.?([0-9]*)\s*rem/.test(remVal)) {
-    return parseFloat(remVal) * scale + "rem";
-  }
-  return remVal;
-};
-
-export const doubleSpacing = remVal => scaleSpacing(remVal, 2);
-
-export const addSpacing = (...args) => {
-  var sum = 0;
-  for (var i = 0; i < args.length; i++) {
-    sum += parseFloat(args[i]);
-  }
-  return sum + "rem";
-};
-
-export const addSpacingPx = (...args) => {
-  var sum = 0;
-  for (var i = 0; i < args.length; i++) {
-    sum += parseFloat(args[i]);
-  }
-  return sum + "px";
-};
-
-export const negativeSpacing = val => `-${val}`;
-
 const baseSpace = "1rem";
 
 const spaces = {
@@ -178,11 +151,36 @@ const theme = {
   mainMaxWidth: "64rem"
 };
 
-// TODO: Fix this spacing shit
-// You want to set the look of inputs, and other elements, from theme,
-// Instead of hunting explicit values
+// Helper functions
 
-export const mediaQuery = Object.keys(breakpoints).reduce((acc, label) => {
+function scaleSpacing(remVal, scale) {
+  if (/([0-9]+)\.?([0-9]*)\s*rem/.test(remVal)) {
+    return parseFloat(remVal) * scale + "rem";
+  }
+  return remVal;
+}
+
+function doubleSpacing(remVal) {
+  scaleSpacing(remVal, 2);
+}
+
+function addSpacing(...args) {
+  var sum = 0;
+  for (var i = 0; i < args.length; i++) {
+    sum += parseFloat(args[i]);
+  }
+  return sum + "rem";
+}
+
+function addSpacingPx(...args) {
+  var sum = 0;
+  for (var i = 0; i < args.length; i++) {
+    sum += parseFloat(args[i]);
+  }
+  return sum + "px";
+}
+
+const mediaQuery = Object.keys(breakpoints).reduce((acc, label) => {
   acc[label] = (...args) => css`
     @media ${theme.breakpoints[label]} {
       ${css(...args)};
@@ -191,12 +189,14 @@ export const mediaQuery = Object.keys(breakpoints).reduce((acc, label) => {
   return acc;
 }, {});
 
-export const paddingTopWithHeaderMixin = (paddingTop, paddingTopM) => css`
-  padding-top: ${props => addSpacing(paddingTop, theme.headerHeight.s)};
+const mixins = {
+  paddingTopWithHeader: (paddingTop, paddingTopM) => css`
+    padding-top: ${props => addSpacing(paddingTop, theme.headerHeight.s)};
 
-  ${mediaQuery.m`
+    ${mediaQuery.m`
       padding-top: ${props => addSpacing(paddingTopM, theme.headerHeight.m)};
     `};
-`;
+  `
+};
 
-export default theme;
+export { mediaQuery, mixins, theme as default };
