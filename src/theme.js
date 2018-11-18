@@ -60,8 +60,7 @@ const palette = {
   nessie: "#2B8C92",
   yellow: "#EBDA4C",
   orange: "#DB8765",
-  logopink: "#DC93BA",
-  icondark: "#314E55",
+  pink: "#DC93BA",
   lightGreen: "#dbf9ef"
 };
 
@@ -69,8 +68,8 @@ const colors = {
   main: palette.grey.five,
   accent: palette.red,
   border: palette.grey.twenty,
-  grey: palette.grey,
-  text: palette.grey.eighty
+  text: palette.grey.sixtyseven,
+  grey: palette.grey
 };
 
 const breakpoints = {
@@ -145,6 +144,7 @@ const buttonSizes = {
 const fontFamily = {
   base: "'Brandon', sans-serif"
 };
+
 const lineHeights = {
   base: 1.5,
   headings: 1.3,

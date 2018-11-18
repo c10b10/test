@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-transform: uppercase;
 `;
 
 export default function ContactInfo({ contact }) {

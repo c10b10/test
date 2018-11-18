@@ -55,7 +55,8 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-image: url(${backgroundJPG});
+    background: url(${backgroundJPG}) no-repeat;
+    background-size: cover;
   }
 
   * {
