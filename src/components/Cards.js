@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import theme, { mediaQuery } from "../theme";
-import { DataContext } from "../helpers";
 import ContactInfo from "./ContactInfo";
 import * as Grid from "./Grid";
 import { VCenter } from "./Layout";
@@ -31,11 +30,11 @@ const Card = styled(Link)`
   }
 `;
 
-export default function CardList({ cards = [] }) {
-  if (!cards.length) return <VCenter>Nothing here.</VCenter>;
+export default function CardList({ contacts = [] }) {
+  if (!contacts.length) return <VCenter>Nothing here.</VCenter>;
   return (
     <Grid.Padding.Container>
-      {cards.map((contact, index) => (
+      {contacts.map((contact, index) => (
         <Grid.Padding.Column key={index}>
           <Card to={`/contact/${contact.username}`}>
             <ContactInfo contact={contact} />

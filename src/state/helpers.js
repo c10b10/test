@@ -24,8 +24,3 @@ export const fetchCards = () => {
       )
   );
 };
-
-export const getContact = (data, username) =>
-  data.find(contact => contact.username === username);
-
-export const DataContext = React.createContext();

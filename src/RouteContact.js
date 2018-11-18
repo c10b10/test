@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { getContact, DataContext } from "./helpers";
+import { DataContext } from "./state/Provider";
+import { getContact } from "./state/selectors";
 import theme from "./theme";
 import Widget from "./components/Widget";
 import ContactInfo from "./components/ContactInfo";
@@ -16,9 +17,7 @@ export default function RouteContact({ match }) {
     <DataContext.Consumer>
       {({ store }) => (
         <SmallWidget>
-          <ContactInfo
-            contact={getContact(store.cards, match.params.contact)}
-          />
+          <ContactInfo contact={getContact(match.params.contact)(store)} />
         </SmallWidget>
       )}
     </DataContext.Consumer>

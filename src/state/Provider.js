@@ -1,12 +1,13 @@
 import React from "react";
 import Async from "react-async";
 
-import { fetchCards, DataContext } from "./helpers";
+import { fetchCards } from "./helpers";
+
+export const DataContext = React.createContext();
 
 // This would normally be done with Redux, but it's overkill for this app.
 class Store extends React.Component {
   state = {
-    data: [],
     filter: false,
     search: ""
   };
@@ -17,15 +18,6 @@ class Store extends React.Component {
     setSearch: this.setSearch.bind(this),
     resetSearch: this.setSearch.bind(this, "")
   };
-
-  static getDerivedStateFromProps(props, state) {
-    if (props.data !== state.data) {
-      return {
-        data: props.data
-      };
-    }
-    return null;
-  }
 
   // Sets the Alphabet letter filtering
   setFilter(letter) {
@@ -41,33 +33,13 @@ class Store extends React.Component {
     });
   }
 
-  // Filters the data using other settings in the state, and returns the
-  // filtered (or not) data.
-  getData() {
-    let data = this.state.data;
-    if (this.state.filter) {
-      data = data.filter(
-        contact =>
-          contact.name.charAt(0).toUpperCase() ===
-          this.state.filter.toUpperCase()
-      );
-    }
-    if (this.state.search) {
-      data = data.filter(contact =>
-        contact.name.toUpperCase().includes(this.state.search.toUpperCase())
-      );
-    }
-    return data;
-  }
-
   render() {
     return (
       <DataContext.Provider
         value={{
           store: {
-            cards: this.getData(),
-            filter: this.state.filter,
-            search: this.state.search
+            contacts: this.props.data,
+            ...this.state
           },
           actions: this.actions
         }}

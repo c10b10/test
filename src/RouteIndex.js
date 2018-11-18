@@ -7,7 +7,8 @@ import AlphabetFilter from "./components/AlphabetFilter";
 import Search from "./components/Search";
 import CardList from "./components/Cards";
 import { VCenter, Section } from "./components/Layout";
-import { DataContext } from "./helpers";
+import { DataContext } from "./state/Provider";
+import { getFilteredContacts } from "./state/selectors";
 
 export default function RouteIndex() {
   return (
@@ -42,7 +43,7 @@ export default function RouteIndex() {
                 <button onClick={actions.resetFilter}>Reset</button>
               </VCenter>
             )}
-            <CardList cards={store.cards} />
+            <CardList contacts={getFilteredContacts(store)} />
           </>
         )}
       </DataContext.Consumer>
