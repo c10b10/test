@@ -172,18 +172,10 @@ const theme = {
     base: spaces.s, // 8px
     small: spaces.xs
   }, // 4px
-  // header
-  headerHeight: {
-    s: "4rem",
-    m: "5rem"
-  },
 
   inputs: inputSizes,
-  cardWidth: "176px",
-  cardHeight: "190px",
-  focusOutline: "3px auto " + colors.focus,
-  cardMaxWidth: "24rem",
-  mainMaxWidth: "64rem" /* 1024px */
+  card: "300px",
+  mainMaxWidth: "64rem"
 };
 
 // TODO: Fix this spacing shit

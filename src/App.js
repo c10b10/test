@@ -4,8 +4,9 @@ import Async from "react-async";
 import { fetchCards } from "./helpers";
 
 import { DataContext } from "./helpers";
+import Main from "./components/Main";
 import Header from "./components/Header";
-import RouteMain from "./RouteMain";
+import RouteIndex from "./RouteIndex";
 import RouteContact from "./RouteContact";
 
 class App extends Component {
@@ -41,9 +42,11 @@ class App extends Component {
   render() {
     return (
       <DataContext.Provider value={this.getData()}>
-        <Header>My Address Book</Header>
-        <Route path="/" exact component={RouteMain} />
-        <Route path="/contact/:contact" component={RouteContact} />
+        <Main>
+          <Header>My Address Book</Header>
+          <Route path="/" exact component={RouteIndex} />
+          <Route path="/contact/:contact" component={RouteContact} />
+        </Main>
       </DataContext.Provider>
     );
   }

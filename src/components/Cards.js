@@ -35,11 +35,11 @@ export default class CardList extends Component {
 
   render() {
     const cards = this.context.map((contact, index) => (
-      <Grid.Margin.Column key={index}>
+      <Grid.Padding.Column key={index}>
         <Card to={`/contact/${contact.username}`}>
           <ContactInfo contact={contact} />
         </Card>
-      </Grid.Margin.Column>
+      </Grid.Padding.Column>
     ));
 
     return <Grid.Margin.Container>{cards}</Grid.Margin.Container>;

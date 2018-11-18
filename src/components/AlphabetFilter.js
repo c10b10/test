@@ -31,6 +31,7 @@ const Wrapper = styled.div`
   ${Letter} + ${Letter} {
     margin-left: ${theme.spaces.base};
   }
+  flex-wrap: wrap;
   justify-content: center;
 `;
 
